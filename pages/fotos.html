@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/link.css">
+  <title>Carrossel 3d</title>
+  <style>
+    body {
+      background: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    .scene {
+      margin: 80px auto;
+      width: 210px;
+      aspect-ratio: 4 / 5; /* define a proporção entre largura e altura de um elemento em unidades*/
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .carousel {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d; /* "Quando este elemento for transformado, preserve a profundidade 3D dos seus filhos." */
+      animation: rotate 30s infinite linear;
+    }
+
+    .carousel>img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 190px;
+      border-radius: 10px;
+      aspect-ratio: 4 / 5;
+      /* transformação composta 3D que faz duas coisas, em ordem: */
+      transform: rotateY(var(--i)) translateZ(288px);
+      /* primeiro: Roda o elemento em torno do eixo Y (vertical), com o ângulo vindo de uma variável CSS --i;
+         segundo: Depois da rotação, empurra o elemento 288px "pra frente" ou "pra fora da tela" no eixo Z, criando profundidade. */
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateY(360deg);
+      }
+
+      100% {
+        transform: rotateY(0deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scene">
+    <div class="carousel">
+      <img style="--i:000deg" src="../img/1.jpeg">
+      <img style="--i:040deg" src="../img/2.jpeg">
+      <img style="--i:080deg" src="../img/3.jpeg">
+      <img style="--i:120deg" src="../img/4.jpeg">
+      <img style="--i:160deg" src="../img/5.jpeg">
+      <img style="--i:200deg" src="../img/6.jpeg">
+      <img style="--i:240deg" src="../img/7.jpeg">
+      <img style="--i:280deg" src="../img/8.jpeg">
+      <img style="--i:320deg" src="../img/9.jpeg">
+    </div>
+  </div>
+  <p style="color: white; font-size: 100px; text-align: center; ">Feliz nosso dia meu amor ❤</p>
+  <div class="link">
+  <a href="../amor.html" style="color: red; align-items: center; text-decoration: none; font-size: 30px;" id="aa">Voltar</a>
+  </div>
+</body>
+</html>
